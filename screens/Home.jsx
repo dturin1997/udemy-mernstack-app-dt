@@ -1,15 +1,42 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { defaultStyle } from "../styles/styles";
+import { colors, defaultStyle } from "../styles/styles";
 import Header from "../components/Header";
+import { Avatar } from "react-native-paper";
 
 const Home = () => {
   return (
     <View style={defaultStyle}>
       <Header />
-      <View>
-        <Text style={{ fontSize: 25 }}>Our</Text>
-        <Text style={{ fontSize: 25, fontWeight: "900" }}>Products</Text>
+      <View
+        style={{
+          paddingTop: 70,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center"  
+        }}
+      >
+        {/* Heading */}
+        <View>
+          <Text style={{ fontSize: 25 }}>Our</Text>
+          <Text style={{ fontSize: 25, fontWeight: "900" }}>Products</Text>
+        </View>
+
+        {/* Search Bar */}
+
+        <View>
+          <TouchableOpacity>
+            <Avatar.Icon
+              icon={"magnify"}
+              size={50}
+              color={"gray"}
+              style={{
+                backgroundColor: colors.color2,
+                elevation: 12,
+              }}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

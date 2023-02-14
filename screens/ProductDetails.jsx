@@ -11,6 +11,7 @@ import { colors, defaultStyle } from "../styles/styles";
 import Header from "../components/Header";
 import Carousel from "react-native-snap-carousel";
 import { Avatar, Button } from "react-native-paper";
+import { Toast } from "react-native-toast-message/lib/src/Toast";
 
 const SLIDER_WIDTH = Dimensions.get("window").width;
 const ITEM_WIDTH = SLIDER_WIDTH;
@@ -30,7 +31,7 @@ const ProductDetails = ({ route: { params } }) => {
   const price = 4999;
   const description =
     "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas , las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum";
-  const stock = 5;
+  const stock = 4;
   const isCarousel = useRef(null);
   const [quantity, setQuantity] = useState(1);
 
@@ -45,8 +46,15 @@ const ProductDetails = ({ route: { params } }) => {
 
   const addToCardHandler = () => {
     if (stock === 0)
-      return;
-    console.log("Adding to Cart ", quantity)
+      return Toast.show({
+        type: "error",
+        text1: "Out Of Stock",
+        text2: "This is text 2",
+      });
+      Toast.show({
+        type: "success",
+        text1: "Added To Cart",
+      });
   };
 
   const images = [

@@ -6,6 +6,7 @@ import { Avatar, Button } from "react-native-paper";
 import SearchModal from "../components/SearchModal";
 import ProductCard from "../components/ProductCard";
 import { useNavigation } from "@react-navigation/native";
+import Footer from "../components/Footer";
 
 const categories = [
   { category: "Nice", _id: "sdjlajla" },
@@ -160,6 +161,7 @@ const Home = () => {
           </ScrollView>
         </View>
       </View>
+      <Footer activeRoute={"home"} />
     </>
   );
 };

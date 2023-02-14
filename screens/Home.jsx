@@ -4,6 +4,8 @@ import { colors, defaultStyle } from "../styles/styles";
 import Header from "../components/Header";
 import { Avatar, Button } from "react-native-paper";
 import SearchModal from "../components/SearchModal";
+import ProductCard from "../components/ProductCard";
+import { useNavigation } from "@react-navigation/native";
 
 const categories = [
   { category: "Nice", _id: "sdjlajla" },
@@ -17,11 +19,23 @@ const categories = [
 const products = [
   {
     price: 4999,
+    stock: 23,
     name: "Laptop",
     _id: "asñlfa1",
     images: [
       {
         url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Macbook_Air_M1_Silver_PNG.png/1200px-Macbook_Air_M1_Silver_PNG.png",
+      },
+    ],
+  },
+  {
+    price: 299,
+    stock: 43,
+    name: "Mouse",
+    _id: "asñlfa2",
+    images: [
+      {
+        url: "https://cdn.pixabay.com/photo/2013/07/12/17/41/computer-mouse-152249_960_720.png",
       },
     ],
   },
@@ -32,10 +46,15 @@ const Home = () => {
   const [activeSearch, setActiveSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const navigate = useNavigation();
+
   const categoryButtonHadler = (id) => {
     setCategory(id);
   };
-  console.log(category);
+
+  const addToCardHandler = (id) => {
+    console.log("Add to Cart", id);
+  };
 
   return (
     <>
@@ -118,6 +137,28 @@ const Home = () => {
           </ScrollView>
         </View>
         {/* Products */}
+
+        <View
+          style={{
+            flex: 1,
+          }}
+        >
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {products.map((item, index) => (
+              <ProductCard
+                stock={item.stock}
+                name={item.name}
+                price={item.price}
+                image={item.images[0]?.url}
+                addToCardHandler={addToCardHandler}
+                id={item._id}
+                key={item._id}
+                i={index}
+                navigate={navigate}
+              />
+            ))}
+          </ScrollView>
+        </View>
       </View>
     </>
   );

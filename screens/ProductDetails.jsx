@@ -10,7 +10,7 @@ import React, { useRef, useState } from "react";
 import { colors, defaultStyle } from "../styles/styles";
 import Header from "../components/Header";
 import Carousel from "react-native-snap-carousel";
-import { Avatar } from "react-native-paper";
+import { Avatar, Button } from "react-native-paper";
 
 const SLIDER_WIDTH = Dimensions.get("window").width;
 const ITEM_WIDTH = SLIDER_WIDTH;
@@ -41,6 +41,12 @@ const ProductDetails = ({ route: { params } }) => {
   const decrementQty = () => {
     if (quantity <= 1) return;
     setQuantity((prev) => prev - 1);
+  };
+
+  const addToCardHandler = () => {
+    if (stock === 0)
+      return;
+    console.log("Adding to Cart ", quantity)
   };
 
   const images = [
@@ -148,6 +154,11 @@ const ProductDetails = ({ route: { params } }) => {
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity activeOpacity={0.9} onPress={addToCardHandler}>
+          <Button icon={"cart"} style={style.btn} textColor={colors.color2}>
+            Add To Cart
+          </Button>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -181,7 +192,6 @@ const style = StyleSheet.create({
     borderRadius: 5,
     borderColor: colors.color5,
   },
-
   btn: {
     backgroundColor: colors.color3,
     borderRadius: 100,

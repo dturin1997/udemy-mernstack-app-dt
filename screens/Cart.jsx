@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import { Button } from "react-native-paper";
 import CartItem from "../components/CartItem";
+import { useNavigation } from "@react-navigation/native";
 
 const cartItems = [
   {
@@ -46,6 +47,7 @@ const cartItems = [
 ];
 
 const Cart = () => {
+  const navigate = useNavigation();
   const incrementHandler = (id, qty, stock) => {
     console.log("Increasing", id, qty, stock);
   };
@@ -102,7 +104,11 @@ const Cart = () => {
         <Text>$5</Text>
       </View>
 
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={
+          cartItems.length > 0 ? () => navigate.navigate("confirmorder") : null
+        }
+      >
         <Button
           style={{
             backgroundColor: colors.color3,

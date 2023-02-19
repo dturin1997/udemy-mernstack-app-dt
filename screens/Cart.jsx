@@ -44,6 +44,24 @@ export const cartItems = [
     price: 99,
     quantity: 6,
   },
+  {
+    name: "Macbook",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Macbook_Air_M1_Silver_PNG.png/1200px-Macbook_Air_M1_Silver_PNG.png",
+    product: "sasfsafsa5",
+    stock: 3,
+    price: 49999,
+    quantity: 2,
+  },
+  {
+    name: "Macbook",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Macbook_Air_M1_Silver_PNG.png/1200px-Macbook_Air_M1_Silver_PNG.png",
+    product: "sasfsafsa6",
+    stock: 3,
+    price: 49999,
+    quantity: 2,
+  },
 ];
 
 const Cart = () => {

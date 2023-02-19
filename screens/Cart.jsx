@@ -7,7 +7,7 @@ import { Button } from "react-native-paper";
 import CartItem from "../components/CartItem";
 import { useNavigation } from "@react-navigation/native";
 
-const cartItems = [
+export const cartItems = [
   {
     name: "Macbook",
     image:

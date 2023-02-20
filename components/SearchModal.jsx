@@ -18,7 +18,7 @@ const SearchModal = ({
   searchQuery,
   setSearchQuery,
   setActiveSearch,
-  products = []
+  products = [],
 }) => {
   const navigate = useNavigation();
 
@@ -31,9 +31,9 @@ const SearchModal = ({
   useEffect(() => {
     BackHandler.addEventListener("hardwareBackPress", backAction);
     return () => {
-        BackHandler.removeEventListener("hardwareBackPress", backAction);
-    }
-  }, [])
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+    };
+  }, []);
 
   return (
     <View

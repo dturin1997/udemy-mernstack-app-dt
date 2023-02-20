@@ -41,6 +41,39 @@ const products = [
       },
     ],
   },
+  {
+    price: 299,
+    stock: 43,
+    name: "Mouse",
+    _id: "asñlfa3",
+    images: [
+      {
+        url: "https://cdn.pixabay.com/photo/2013/07/12/17/41/computer-mouse-152249_960_720.png",
+      },
+    ],
+  },
+  {
+    price: 299,
+    stock: 43,
+    name: "Mouse",
+    _id: "asñlfa4",
+    images: [
+      {
+        url: "https://cdn.pixabay.com/photo/2013/07/12/17/41/computer-mouse-152249_960_720.png",
+      },
+    ],
+  },
+  {
+    price: 299,
+    stock: 43,
+    name: "Mouse",
+    _id: "asñlfa5",
+    images: [
+      {
+        url: "https://cdn.pixabay.com/photo/2013/07/12/17/41/computer-mouse-152249_960_720.png",
+      },
+    ],
+  },
 ];
 
 const Home = () => {
@@ -80,7 +113,7 @@ const Home = () => {
           }}
         >
           {/* Heading */}
-          <Heading text1="Our" text2="Products"/>
+          <Heading text1="Our" text2="Products" />
 
           {/* Search Bar */}
 

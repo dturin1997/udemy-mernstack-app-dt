@@ -19,7 +19,7 @@ export const defaultStyle = StyleSheet.create({
 });
 
 export const inputStyling = StyleSheet.create({
-  height: 50,
+  //height: 50,
   backgroundColor: colors.color2,
   marginVertical: 10,
   marginHorizontal: 20,

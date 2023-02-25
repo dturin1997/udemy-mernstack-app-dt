@@ -86,3 +86,6 @@ export const formStyles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+
+export const defaultImg =
+  "https://www.nicepng.com/png/detail/301-3012787_avatar-movie-png-avatar-png.png";

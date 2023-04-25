@@ -28,7 +28,9 @@ const Header = ({ back, emptyCart = false }) => {
               backgroundColor: colors.color4,
             }}
             icon={"arrow-left"}
-            color={route.name === "productdetails" ? colors.color2 : colors.color3}
+            color={
+              route.name === "productdetails" ? colors.color2 : colors.color3
+            }
           />
         </TouchableOpacity>
       )}
@@ -47,7 +49,9 @@ const Header = ({ back, emptyCart = false }) => {
             backgroundColor: colors.color4,
           }}
           icon={emptyCart ? "delete-outline" : "cart-outline"}
-          color={route.name === "productdetails" ? colors.color2 : colors.color3}
+          color={
+            route.name === "productdetails" ? colors.color2 : colors.color3
+          }
         />
       </TouchableOpacity>
     </>

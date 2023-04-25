@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Platform,
+} from "react-native";
 import React from "react";
 import { colors, defaultStyle } from "../styles/styles";
 import Header from "../components/Header";
@@ -85,7 +91,10 @@ const Cart = () => {
       <Heading
         text1="Shopping"
         text2="Cart"
-        containerStyle={{ paddingTop: 70, marginLeft: 35 }}
+        containerStyle={{
+          paddingTop: Platform.OS === "android" ? 50 : 100,
+          marginLeft: 35,
+        }}
       />
       <View
         style={{

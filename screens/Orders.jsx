@@ -4,6 +4,7 @@ import { colors, defaultStyle, formHeading } from "../styles/styles";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 import { Headline } from "react-native-paper";
+import OrderItem from "../components/OrderItem";
 
 const orders = [
   {
@@ -21,6 +22,32 @@ const orders = [
   },
   {
     _id: "sfafssafas1",
+    shippingInfo: {
+      address: "73 easter",
+      city: "New York",
+      country: "USA",
+      pinCode: 202322,
+    },
+    createdAt: "12-2-2022T2343",
+    orderStatus: "Processing",
+    paymentMethod: "ONLINE",
+    totalAmount: 2000,
+  },
+  {
+    _id: "sfafssafas2",
+    shippingInfo: {
+      address: "73 easter",
+      city: "New York",
+      country: "USA",
+      pinCode: 202322,
+    },
+    createdAt: "12-2-2022T2343",
+    orderStatus: "Processing",
+    paymentMethod: "ONLINE",
+    totalAmount: 2000,
+  },
+  {
+    _id: "sfafssafas3",
     shippingInfo: {
       address: "73 easter",
       city: "New York",
@@ -61,7 +88,20 @@ const Orders = () => {
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
-            {orders.length > 0 ? null : (
+            {orders.length > 0 ? (
+              orders.map((item, index) => (
+                <OrderItem
+                  key={item._id}
+                  id={item._id}
+                  i={index}
+                  price={item.totalAmount}
+                  status={item.orderStatus}
+                  paymentMethod={item.paymentMethod}
+                  orderedOn={item.createdAt.split("T")[0]}
+                  address={`${item.shippingInfo.address}, ${item.shippingInfo.city}, ${item.shippingInfo.country} ${item.shippingInfo.pinCode}`}
+                />
+              ))
+            ) : (
               <Headline style={{ textAlign: "center" }}>No Orders Yet</Headline>
             )}
           </ScrollView>

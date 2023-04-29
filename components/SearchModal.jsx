@@ -14,7 +14,6 @@ import { useNavigation } from "@react-navigation/native";
 import { colors } from "../styles/styles";
 import { Headline, Searchbar } from "react-native-paper";
 import HideSearch from "./HideSearch";
-import { useState } from "react";
 
 const SearchModal = ({
   searchQuery,
@@ -23,18 +22,13 @@ const SearchModal = ({
   products = [],
 }) => {
   const navigate = useNavigation();
-  //const [ZIndex, setZIndex] = useState(100);
 
   const backAction = () => {
     setSearchQuery("");
     setActiveSearch(false);
     return true;
   };
-  /*
-  const hideModal = () => {
-    setZIndex(0);
-  };
-*/
+
   useEffect(() => {
     BackHandler.addEventListener("hardwareBackPress", backAction);
     return () => {
